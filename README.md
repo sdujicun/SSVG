@@ -1,1 +1,1 @@
-# SSVG
+# Shapelet selection with horizontal visibility graphs in time series classification
