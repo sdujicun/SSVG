@@ -1,6 +1,6 @@
 package tsc_algorithms;
 
-import development.DataSets;
+import fileIO.DataSets;
 import utilities.ClassifierTools;
 import weka.classifiers.Classifier;
 import weka.classifiers.lazy.kNN;

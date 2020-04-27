@@ -15,11 +15,11 @@ import weka.core.shapelet.Shapelet;
 import weka.filters.timeseries.shapelet_transforms.FullShapeletTransform;
 import weka.filters.timeseries.shapelet_transforms.ShapeletTransform;
 import weka.filters.timeseries.shapelet_transforms.classValue.BinarisedClassValue;
-import weka.filters.timeseries.shapelet_transforms.subclass.ShapeletTransformBasedOnLFDP;
-import weka.filters.timeseries.shapelet_transforms.subclass.ShapeletTransformWithSubclassSample;
-import weka.filters.timeseries.shapelet_transforms.subclass.ShapeletTransformWithSubclassSampleAndLFDP;
+import weka.filters.timeseries.shapelet_transforms.fss.ShapeletTransformBasedOnLFDP;
+import weka.filters.timeseries.shapelet_transforms.fss.ShapeletTransformWithSubclassSample;
+import weka.filters.timeseries.shapelet_transforms.fss.ShapeletTransformWithSubclassSampleAndLFDP;
 import weka.filters.timeseries.shapelet_transforms.subsequenceDist.ImprovedOnlineSubSeqDistance;
-import development.DataSets;
+import fileIO.DataSets;
 
 public class SpeedupStrategyTest {
 	public static void main(String[] args) throws Exception {

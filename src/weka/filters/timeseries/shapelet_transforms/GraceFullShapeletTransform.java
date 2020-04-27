@@ -5,7 +5,8 @@
  */
 package weka.filters.timeseries.shapelet_transforms;
 
-import development.DataSets;
+import fileIO.DataSets;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -18,6 +19,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
+
 import weka.core.Instances;
 import weka.core.shapelet.Shapelet;
 import static weka.filters.timeseries.shapelet_transforms.FullShapeletTransform.removeSelfSimilar;

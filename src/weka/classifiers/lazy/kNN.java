@@ -1,7 +1,9 @@
 package weka.classifiers.lazy;
 
-import development.DataSets;
+import fileIO.DataSets;
+
 import java.text.DecimalFormat;
+
 import utilities.ClassifierTools;
 import weka.core.*;
 import weka.core.neighboursearch.NearestNeighbourSearch;

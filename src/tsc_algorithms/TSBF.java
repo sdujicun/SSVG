@@ -51,10 +51,12 @@ information.
  */
 package tsc_algorithms;
 
-import development.DataSets;
+import fileIO.DataSets;
 import fileIO.OutFile;
+
 import java.text.DecimalFormat;
 import java.util.Random;
+
 import tsc_algorithms.TimeSeriesForest.FeatureSet;
 import utilities.ClassifierTools;
 import utilities.InstanceTools;

@@ -36,12 +36,12 @@ package tsc_algorithms;
  margin= min{ |f_i-v| } 
  **/
 
+import fileIO.DataSets;
 import fileIO.OutFile;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import development.DataSets;
 import utilities.ClassifierTools;
 import utilities.SaveCVAccuracy;
 import weka.classifiers.AbstractClassifier;

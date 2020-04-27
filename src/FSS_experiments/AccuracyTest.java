@@ -9,9 +9,9 @@ import weka.classifiers.meta.timeseriesensembles.WeightedEnsemble;
 import weka.core.Instances;
 import weka.core.shapelet.QualityMeasures;
 import weka.filters.timeseries.shapelet_transforms.classValue.BinarisedClassValue;
-import weka.filters.timeseries.shapelet_transforms.subclass.ShapeletTransformWithSubclassSampleAndLFDP;
+import weka.filters.timeseries.shapelet_transforms.fss.ShapeletTransformWithSubclassSampleAndLFDP;
 import weka.filters.timeseries.shapelet_transforms.subsequenceDist.ImprovedOnlineSubSeqDistance;
-import development.DataSets;
+import fileIO.DataSets;
 
 public class AccuracyTest {
 	public static void main(String[] args) throws Exception {

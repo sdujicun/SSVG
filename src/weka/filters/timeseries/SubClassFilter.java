@@ -4,7 +4,7 @@ import java.util.List;
 
 import weka.core.*;
 import weka.filters.SimpleBatchFilter;
-import weka.filters.timeseries.shapelet_transforms.subclass.SubclassSample;
+import weka.filters.timeseries.shapelet_transforms.fss.subclass.SubclassSample;
 
 public class SubClassFilter extends SimpleBatchFilter {
 

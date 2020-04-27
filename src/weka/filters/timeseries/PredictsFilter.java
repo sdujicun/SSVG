@@ -4,12 +4,14 @@
  * */
 package weka.filters.timeseries;
 
-import development.DataSets;
+import fileIO.DataSets;
 import fileIO.OutFile;
+
 import java.io.FileReader;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import utilities.ClassifierTools;
 import weka.classifiers.lazy.DTW_1NN;
 import weka.classifiers.lazy.kNN;

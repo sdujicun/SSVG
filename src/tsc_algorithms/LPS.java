@@ -2,8 +2,9 @@
  */
 package tsc_algorithms;
 
-import development.DataSets;
+import fileIO.DataSets;
 import fileIO.OutFile;
+
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.util.Random;
+
 import utilities.ClassifierTools;
 import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Evaluation;

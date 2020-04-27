@@ -3,17 +3,18 @@
  */
 package bakeOffExperiments;
 
-import PS_ACF_experiments.FixedIntervalForest;
 import utilities.SaveCVAccuracy;
 import tsc_algorithms.*;
-import development.DataSets;
+import fileIO.DataSets;
 import fileIO.InFile;
 import fileIO.OutFile;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+
 import utilities.ClassifierTools;
 import utilities.InstanceTools;
 import weka.classifiers.AbstractClassifier;

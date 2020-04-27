@@ -66,7 +66,7 @@ public Instances process(Instances inst) throws Exception {
 		if(c>=0)
                 {
 			temp=new double[d.length-1];
-                        System.arraycopy(d,0,temp,0,c);
+				System.arraycopy(d,0,temp,0,c);
  //                       if(c<temp.length)
  //                           System.arraycopy(d,c+1,temp,c,d.length-(c+1));
 			d=temp;

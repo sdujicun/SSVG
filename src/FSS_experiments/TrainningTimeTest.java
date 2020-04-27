@@ -10,22 +10,22 @@ import weka.core.shapelet.QualityMeasures;
 import weka.core.shapelet.Shapelet;
 import weka.filters.timeseries.shapelet_transforms.FullShapeletTransform;
 import weka.filters.timeseries.shapelet_transforms.classValue.BinarisedClassValue;
-import weka.filters.timeseries.shapelet_transforms.subclass.ShapeletTransformWithSubclassSampleAndLFDP;
+import weka.filters.timeseries.shapelet_transforms.fss.ShapeletTransformWithSubclassSampleAndLFDP;
 import weka.filters.timeseries.shapelet_transforms.subsequenceDist.ImprovedOnlineSubSeqDistance;
-import development.DataSets;
+import fileIO.DataSets;
 
 public class TrainningTimeTest {
 	public static void main(String[] args) throws Exception {
 
-		String[] problems={"ChlorineConcentration","Coffee","DiatomSizeReduction","ECG200","ECGFiveDays","MoteStrain","Lightning7","Symbols","SyntheticControl","Trace"};
+		String[] problems={"ChlorineConcentration","Coffee","DiatomSizeReduction","Lightning7","MoteStrain","Symbols","Trace"};
 			
 
 		for (int i = 0; i < problems.length; i++) {
 			System.out.println(problems[i]);
-			trainTimeForLS(problems[i]);
-			trainTimeForST(problems[i]);
+//			trainTimeForLS(problems[i]);
+//			trainTimeForST(problems[i]);
 			trainTimeForFSS(problems[i]);
-			trainTimeForFS(problems[i]);
+//			trainTimeForFS(problems[i]);
 			System.out.println();			
 		}
 		

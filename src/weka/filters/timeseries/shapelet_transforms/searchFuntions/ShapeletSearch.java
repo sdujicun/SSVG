@@ -9,10 +9,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 
-import representation.plr.PLR_LFDP;
-import representation.plr.PLR_EP;
 import weka.core.Instance;
 import weka.core.shapelet.Shapelet;
+import weka.filters.timeseries.shapelet_transforms.fss.lfdp.PLR_EP;
+import weka.filters.timeseries.shapelet_transforms.fss.lfdp.PLR_LFDP;
+import weka.filters.timeseries.shapelet_transforms.hvg.HVG;
 
 /**
  *
@@ -114,6 +115,24 @@ public class ShapeletSearch implements Serializable {
 
 		return seriesShapelets;
 	}
+	
+	public ArrayList<Shapelet> SearchForShapeletsInSeriesWithHVG(Instance timeSeries, ProcessCandidate checkCandidate, int minDiff) {
+		ArrayList<Shapelet> seriesShapelets = new ArrayList<>();
+
+		double[] series = timeSeries.toDoubleArray();
+		int[] indexHVG = new HVG().getHVGIndex(timeSeries, minDiff);			
+		for (int start = 0; start < indexHVG.length - 1; start++) {
+			for (int end = start + 1; end < indexHVG.length; end++) {
+				Shapelet shapelet = checkCandidate.process(series, indexHVG[start], indexHVG[end] - indexHVG[start]);
+				if (shapelet != null) {
+					seriesShapelets.add(shapelet);
+				}
+			}
+		}
+
+		return seriesShapelets;
+	}
+	
 	/**
 	 * add by jc to find shapelet by IP
 	 * 

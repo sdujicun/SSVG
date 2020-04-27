@@ -2,7 +2,7 @@ package tsc_algorithms.COTE_FSS;
 
 import java.util.Date;
 
-import development.DataSets;
+import fileIO.DataSets;
 import fileIO.OutFile;
 import tsc_algorithms.ElasticEnsemble;
 import utilities.ClassifierTools;
@@ -12,7 +12,7 @@ import weka.core.*;
 import weka.core.shapelet.QualityMeasures;
 import weka.filters.timeseries.ACF;
 import weka.filters.timeseries.PowerSpectrum;
-import weka.filters.timeseries.shapelet_transforms.subclass.ShapeletTransformWithSubclassSampleAndLFDP;
+import weka.filters.timeseries.shapelet_transforms.fss.ShapeletTransformWithSubclassSampleAndLFDP;
 import weka.filters.timeseries.shapelet_transforms.subsequenceDist.OnlineSubSeqDistance;
 
 public class COTE_FSS extends AbstractClassifier {
