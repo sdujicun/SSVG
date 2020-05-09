@@ -9,17 +9,19 @@ import weka.classifiers.meta.timeseriesensembles.WeightedEnsemble;
 import weka.core.Instances;
 import weka.core.shapelet.QualityMeasures;
 import weka.filters.timeseries.shapelet_transforms.classValue.BinarisedClassValue;
-import weka.filters.timeseries.shapelet_transforms.hvg.ShapeletTransformWithHVG;
+import weka.filters.timeseries.shapelet_transforms.sshvg.ShapeletTransformWithHVG;
 import weka.filters.timeseries.shapelet_transforms.subsequenceDist.ImprovedOnlineSubSeqDistance;
 import fileIO.DataSets;
 
-public class MinDiffsExperiment {
+public class ShapeletNumberExperiment {
 	public static void main(String[] args) throws Exception {
 
-		// String[] problems=DataSets.DSUsed;
-		String[] problems = { "Adiac", // 390,391,176,37
+		
+		String[] problems = { 
+				"Adiac", // 390,391,176,37
 				"Beef", // 30,30,470,5
-				"ChlorineConcentration", "Coffee", // 28,28,286,2
+				"ChlorineConcentration", 
+				"Coffee", // 28,28,286,2
 				"DiatomSizeReduction", // 16,306,345,4
 				"ItalyPowerDemand", // 67,1029,24,2
 				"Lightning7", // 70,73,319,7
@@ -28,17 +30,18 @@ public class MinDiffsExperiment {
 				"Symbols", // 25,995,398,6
 				"Trace", // 100,100,275,4
 				"TwoLeadECG", // 23,1139,82,2
-
 		};
 		System.out.println(problems.length);
-		for (int min = 5; min >= 0; min--) {
-			for (int i = 0; i < problems.length; i++) {
-				minMaxIntervalsExperiments(problems[i], min);
+		double[] rate={0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0};
+		for (int i = 0; i < problems.length; i++) {
+			for(int j=0;j<rate.length;j++){
+				shapeletNumberExperiments(problems[i],rate[j]);
 			}
 		}
+
 	}
 
-	public static void minMaxIntervalsExperiments(String problem, int min)
+	public static void shapeletNumberExperiments(String problem,double rate)
 			throws Exception {
 
 		final String resampleLocation = DataSets.problemPath;
@@ -50,38 +53,32 @@ public class MinDiffsExperiment {
 		test = utilities.ClassifierTools.loadData(filePath + "_TEST");
 		train = utilities.ClassifierTools.loadData(filePath + "_TRAIN");
 
-		String filename = "minAccuracy.txt";
-		File f = new File("./" + File.separator + filename);
-		Writer out = null;
-		out = new FileWriter(f, true);
-
 		ShapeletTransformWithHVG transform = new ShapeletTransformWithHVG();
 		transform.setRoundRobin(true);
 
 		transform.setClassValue(new BinarisedClassValue());
 		transform.setSubSeqDistance(new ImprovedOnlineSubSeqDistance());
 		transform.useCandidatePruning();
-		transform.setNumberOfShapelets(train.numInstances() / 2);
+		transform.setNumberOfShapelets((int)(train.numInstances()*rate));
 		transform
 				.setQualityMeasure(QualityMeasures.ShapeletQualityChoice.INFORMATION_GAIN);
-		transform.setMinDiff(min);
 
 		long d1 = System.nanoTime();
 		Instances tranTrain = transform.process(train);
 		long d2 = System.nanoTime();
 		double time = (d2 - d1) * 0.000000001;
 
-		Instances tranTest = transform.process(test);
+//		Instances tranTest = transform.process(test);
+//
+//		double accuracy;
+//		WeightedEnsemble we = new WeightedEnsemble();
+//		we.buildClassifier(tranTrain);
+//		accuracy = ClassifierTools.accuracy(tranTest, we);
 
-		double accuracy;
-		WeightedEnsemble we = new WeightedEnsemble();
-		we.buildClassifier(tranTrain);
-		accuracy = ClassifierTools.accuracy(tranTest, we);
+		System.out.println(problem + "\t" + rate + "\t" + time);
+		
 
-		out.write(problem + "\t" + min + "\t" + time + "\t" + accuracy+ "\t\r\n");
-		out.close();
-
-		System.out.print(problem + "\t" + min + "\t" + time + "\t" + accuracy+ "\t\r\n");
+		//System.out.println(problem + "\t" + rate + "\t" + time + "\t" + accuracy);
 
 	}
 

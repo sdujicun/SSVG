@@ -1,15 +1,6 @@
-package weka.filters.timeseries.shapelet_transforms.hvg;
+package weka.filters.timeseries.shapelet_transforms.sshvg;
 
-/*
- * copyright: Anthony Bagnall
- * NOTE: As shapelet extraction can be time consuming, there is an option to output shapelets
- * to a text file (Default location is in the root dir of the project, file name "defaultShapeletOutput.txt").
- *
- * Default settings are TO NOT PRODUCE OUTPUT FILE - unless file name is changed, each successive filter will
- * overwrite the output (see "setLogOutputFile(String fileName)" to change file dir and name).
- *
- * To reconstruct a filter from this output, please see the method "createFilterFromFile(String fileName)".
- */
+
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -602,7 +593,7 @@ public class ShapeletTransformWithHVG extends SimpleBatchFilter {
 
 		this.numShapelets = kShapelets.size();
 
-		recordShapelets(kShapelets, this.ouputFileLocation);
+		//recordShapelets(kShapelets, this.ouputFileLocation);
 		// printShapelets(kShapelets);
 
 		return kShapelets;
@@ -1120,33 +1111,20 @@ public class ShapeletTransformWithHVG extends SimpleBatchFilter {
 
 	public static void main(String[] args) {
 		String[] problems= { 
-//				"Adiac", // 390,391,176,37
-//				"Beef", // 30,30,470,5
-//				"ChlorineConcentration",
-//				"Coffee", // 28,28,286,2
-//				"DiatomSizeReduction", // 16,306,345,4
-//				"ItalyPowerDemand", // 67,1029,24,2
-//				"Lightning7", // 70,73,319,7
-//				"MedicalImages", // 381,760,99,10
-//				"MoteStrain", // 20,1252,84,2
-//				"Symbols", // 25,995,398,6
-//				"Trace", // 100,100,275,4
-//				"TwoLeadECG", // 23,1139,82,2
-	
-				
-
-				"Beef", // 30,30,470,5				
+				"Adiac", // 390,391,176,37
+				"Beef", // 30,30,470,5
+				"ChlorineConcentration",
 				"Coffee", // 28,28,286,2
 				"DiatomSizeReduction", // 16,306,345,4
 				"ItalyPowerDemand", // 67,1029,24,2
-				"Lightning7", // 70,73,319,7				
+				"Lightning7", // 70,73,319,7
+				"MedicalImages", // 381,760,99,10
 				"MoteStrain", // 20,1252,84,2
 				"Symbols", // 25,995,398,6
 				"Trace", // 100,100,275,4
 				"TwoLeadECG", // 23,1139,82,2
-				"ChlorineConcentration",
-				"MedicalImages", // 381,760,99,10
-				"Adiac", // 390,391,176,37
+	
+			
 		};
 
 

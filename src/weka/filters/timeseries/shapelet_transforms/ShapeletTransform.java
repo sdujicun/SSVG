@@ -177,7 +177,7 @@ public class ShapeletTransform extends FullShapeletTransform {
 //		Instances train = ClassifierTools.loadData(DataSets.problemPath + s + "\\" + s + "_TRAIN");
 //		Instances test = ClassifierTools.loadData(DataSets.problemPath + s + "\\" + s + "_TEST"); 
         /*ShapeletTransform transform = new ShapeletTransform();
-        transform.setNumberOfShapelets(train.numInstances() * 10);
+        transform.setNumberOfShapelets(train.numInstances() /2);
         transform.setShapeletMinAndMax(3, train.numAttributes() - 1);
         transform.supressOutput();
         transform.setQualityMeasure(QualityMeasures.ShapeletQualityChoice.INFORMATION_GAIN);
@@ -188,7 +188,7 @@ public class ShapeletTransform extends FullShapeletTransform {
         System.out.println((finishTime - startTime));*/
 
         FullShapeletTransform transform1 = new FullShapeletTransform();
-        transform1.setNumberOfShapelets(train.numInstances() * 10);
+        transform1.setNumberOfShapelets(train.numInstances()/2);
         transform1.setShapeletMinAndMax(3, train.numAttributes() - 1);
         transform1.setQualityMeasure(QualityMeasures.ShapeletQualityChoice.INFORMATION_GAIN);
 

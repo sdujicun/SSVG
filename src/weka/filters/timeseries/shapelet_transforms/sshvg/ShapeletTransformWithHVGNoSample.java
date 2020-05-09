@@ -1,4 +1,4 @@
-package weka.filters.timeseries.shapelet_transforms.hvg;
+package weka.filters.timeseries.shapelet_transforms.sshvg;
 
 /*
  * copyright: Anthony Bagnall

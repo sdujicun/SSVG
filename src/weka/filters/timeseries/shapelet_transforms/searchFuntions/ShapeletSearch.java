@@ -13,7 +13,7 @@ import weka.core.Instance;
 import weka.core.shapelet.Shapelet;
 import weka.filters.timeseries.shapelet_transforms.fss.lfdp.PLR_EP;
 import weka.filters.timeseries.shapelet_transforms.fss.lfdp.PLR_LFDP;
-import weka.filters.timeseries.shapelet_transforms.hvg.HVG;
+import weka.filters.timeseries.shapelet_transforms.sshvg.hvg.HVG;
 
 /**
  *
@@ -120,7 +120,7 @@ public class ShapeletSearch implements Serializable {
 		ArrayList<Shapelet> seriesShapelets = new ArrayList<>();
 
 		double[] series = timeSeries.toDoubleArray();
-		int[] indexHVG = new HVG().getHVGIndex(timeSeries, minDiff);			
+		int[] indexHVG = new HVG().getSectionPointIndex(timeSeries, minDiff);			
 		for (int start = 0; start < indexHVG.length - 1; start++) {
 			for (int end = start + 1; end < indexHVG.length; end++) {
 				Shapelet shapelet = checkCandidate.process(series, indexHVG[start], indexHVG[end] - indexHVG[start]);
