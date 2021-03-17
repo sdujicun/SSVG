@@ -1,5 +1,4 @@
-# SSVG
-Shapelet selection with horizontal visibility graphs in time series classification
+Identifiable Temporal Feature Selection via Horizontal Visibility Graph towards Smart Medical Applications
 
 
 All the experiments are in the package: SSHVG_experiments.
